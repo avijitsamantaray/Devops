@@ -37,20 +37,19 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
         run: | 
-         sed -i """s/"client_id_value"/"$client-id"/g""" backend.tf
+          sed -i """s/"client_id_value"/"$client-id"/g""" backend.tf
           sed -i """s/"tenant_id_value"/"$tenant-id"/g""" backend.tf
           sed -i """s/"subsription_id_value"/"$subsription-id"/g""" backend.tf
-          cat backend.tf
         
         
-    
-
       - name: terraform  init & apply & destroy
-        env: 
-          TF_VAR_github_token: ${{ secrets.ga_token}}
+        # env: 
+        #   TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
            terraform init
-           terraform apply -auto-approve
-           terraform destroy -auto-approve
+           
+           
+        # terraform apply -auto-approve
+        # terraform destroy -auto-approve
      
       
