@@ -1,11 +1,11 @@
 name: secretes_with backend.tf
 
 on:
-  workflow_dispatch:
-    # inputs:
-    #   environment:
-    #     required: true
-    #     type: string
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
   
 permissions:
   id-token: write
