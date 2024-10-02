@@ -27,30 +27,29 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          client-id: ${{ vars.AZURE_CLIENT_ID }}
-          tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_SUB_ID }}
+          client-id: ${{ secrets['AZURE_CLIENT_ID'] }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUB_ID }}
 
       - name: Terraform replace  azure creds
         env:
-           client_id: ${{ secrets[format('azure_client_{0}', inputs.environment)] }}
-           tenant_id: ${{ vars.azure_tenant_id }}
-           subsription_id: ${{ vars.azure_sub_id }}
+          client_id: ${{  secrets['AZURE_CLIENT_ID']}}
+          tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription_id: ${{ secrets.AZURE_SUB_ID }}
         run: | 
-         sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
+          sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
           sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
-          sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
-          cat backend.tf
+          sed -i """s/"subscription_id_value"/"$subscription_id"/g""" backend.tf
         
         
-    
-
       - name: terraform  init & apply & destroy
-        env: 
-          TF_VAR_github_token: ${{ secrets.ga_token}}
+        # env: 
+        #   TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
            terraform init
-           terraform apply -auto-approve
-           terraform destroy -auto-approve
+           
+           
+        # terraform apply -auto-approve
+        # terraform destroy -auto-approve
      
       
