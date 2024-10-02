@@ -1,0 +1,28 @@
+#---------------------------------------------
+# Deploy foundation and  core Infra in dev
+#---------------------------------------------
+name: Build & Push Dev
+
+on:
+  workflow_dispatch:
+  
+permissions:
+  id-token: write
+  contents: read  
+  pull-requests: write
+  statuses: read
+
+
+  
+# Run tests, checks and foundation, core infra
+jobs:
+
+  #tests-and-checks: (to be Updated later)  
+  
+  deploy-foundation-dev:
+    #needs: tests-and-checks
+    uses: ./.github/workflows/backend_TF.yml    
+    with:
+      environment: 'id' 
+    secrets: inherit
+ 

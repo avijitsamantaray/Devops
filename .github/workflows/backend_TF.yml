@@ -1,0 +1,56 @@
+name: secretes_with backend.tf
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+  
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+  
+   
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUB_ID }}
+
+      - name: Terraform replace  azure creds
+        env:
+           client_id: ${{ secrets[format('azure_client_{0}', inputs.environment)] }}
+           tenant_id: ${{ vars.azure_tenant_id }}
+           subsription_id: ${{ vars.azure_sub_id }}
+        run: | 
+         sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
+          sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
+          sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
+          cat backend.tf
+        
+        
+    
+
+      - name: terraform  init & apply & destroy
+        env: 
+          TF_VAR_github_token: ${{ secrets.ga_token}}
+        run: |
+           terraform init
+           terraform apply -auto-approve
+           terraform destroy -auto-approve
+     
+      

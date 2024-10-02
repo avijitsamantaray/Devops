@@ -1,0 +1,11 @@
+name: first_workflows
+on: 
+  workflow_dispatch
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: greet
+        run: echo "heelo"
+
+      
