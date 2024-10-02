@@ -1,7 +1,7 @@
 #---------------------------------------------
 # Deploy foundation and  core Infra in dev
 #---------------------------------------------
-name: Build & Push Dev
+name: deploy_terraform
 
 on:
   workflow_dispatch:
