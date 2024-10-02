@@ -23,6 +23,7 @@ jobs:
     #needs: tests-and-checks
     uses: ./.github/workflows/backend_TF.yml    
     with:
-      environment: 'id' 
+      environment: 'id'
+    secrets: inherit
     
  
