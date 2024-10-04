@@ -10,12 +10,18 @@ terraform {
     }
   }
 }
-
-
-
-
+provider "github" {
+  token = var.github_token
+}
 provider "azurerm" {
   storage_use_azuread = true
   features {}
 }
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Variable
+
+variable "github_token" {
+  description = "GitHub Personal Access Token"
+  type        = string
+}
