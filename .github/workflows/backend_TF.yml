@@ -43,8 +43,8 @@ jobs:
         
         
       - name: terraform  init & apply & destroy
-        # env: 
-        #   TF_VAR_github_token: ${{ secrets.ga_token}}
+        env: 
+          TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
            terraform init
            
