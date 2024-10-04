@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: greet
-        run: echo "hllo"
+        run: echo "hello avijit"
 
       
