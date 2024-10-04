@@ -31,7 +31,7 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
 
-      - name: Terraform replace  azure creds
+      - name: Passing Azure creds to backend.tf
         env:
           client_id: ${{  secrets['AZURE_CLIENT_ID']}}
           tenant_id: ${{ secrets.AZURE_TENANT_ID }}
@@ -47,9 +47,7 @@ jobs:
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
            terraform init
-           
-           
-        # terraform apply -auto-approve
-        # terraform destroy -auto-approve
+           terraform apply -auto-approve
+           terraform destroy -auto-approve
      
       
