@@ -19,7 +19,7 @@ access_key = private_key.private_bytes(
 
 conn=snowflake.connector.connect(
         user=os.environ['uname'],
-        private_key=access_key
+        private_key=access_key,
         account=os.environ['aname'],
         database='testing',
         schema='testing'
