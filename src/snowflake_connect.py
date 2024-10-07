@@ -13,15 +13,15 @@ key=os.environ['password']
 private_key = serialization.load_pem_private_key(bytes(key, encoding='utf-8'), password=None)
 
 
-access_key = private_key.private_bytes(
-      encoding=serialization.Encoding.DER,
-      format=serialization.PrivateFormat.PKCS8,
-      encryption_algorithm=serialization.NoEncryption()
-  )
-
+# access_key = private_key.private_bytes(
+#       encoding=serialization.Encoding.DER,
+#       format=serialization.PrivateFormat.PKCS8,
+#       encryption_algorithm=serialization.NoEncryption()
+  # )
+# 
 conn=snowflake.connector.connect(
         user=os.environ['uname'],
-        private_key=access_key,
+        private_key=private_key,
         account=os.environ['aname'],
         database='testing',
         schema='testing'
