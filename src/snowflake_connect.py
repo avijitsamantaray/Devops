@@ -6,10 +6,11 @@ import pandas as pd
 import sys
 
 # connection to SnowFlake
-
+key=os.environ['password'],
 conn=snowflake.connector.connect(
         user=os.environ['uname'],
-        password=os.environ['password'],
+        
+        private_key=serialization.load_pem_private_key(key, password=None)
         account=os.environ['aname'],
         database='testing',
         schema='testing'
