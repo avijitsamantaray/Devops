@@ -9,7 +9,7 @@ jobs:
     env:
       aname: ${{ secrets.SNOWFLAKE_ACCOUNT }}
       uname: ${{ secrets.SNOWFLAKE_USER }}
-      password: $ {{secrets.snowflake_password}}
+      password: ${{ secrets.SNOWFLAKE_PASSWORD }}
       
     # SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
     # SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
