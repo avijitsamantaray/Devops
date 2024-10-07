@@ -1,9 +1,10 @@
 
 import snowflake.connector
-
+from cryptography.hazmat.primitives import serialization
 import os
 import pandas as pd
 import sys
+
 
 # connection to SnowFlake
 key=os.environ['password']
