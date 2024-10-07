@@ -7,15 +7,15 @@ import sys
 
 # connection to SnowFlake
 
-conn=snowflake.connector.connect(
-        user=os.environ['uname'],
-        password=os.environ['password'],
-        account=os.environ['aname'],
-        database='testing',
-        schema='testing'
+# conn=snowflake.connector.connect(
+#         user=os.environ['uname'],
+#         password=os.environ['password'],
+#         account=os.environ['aname'],
+#         database='testing',
+#         schema='testing'
 
-)
-cts = conn.cursor()
+# )
+# cts = conn.cursor()
 
 # Task........................................................................................
 def number1():
@@ -23,11 +23,21 @@ def number1():
     for row in data:
         print(row)
 
+def number2():
+        user=os.environ['uname'],
+        password=os.environ['password'],
+        account=os.environ['aname'],
+        database='testing',
+        schema='testing'
+        print(user)
+        print(password)
+        print(account)
+
 
 
 
 if __name__ == "__main__":
-    number1()
+    number2()
 
 
 
