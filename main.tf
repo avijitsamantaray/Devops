@@ -12,12 +12,12 @@ variable "location" {
 
 variable "storage_account_name" {
   type    = string
-  default = "my-storage-accountdsdsdsd"
+  default = "ghfduhfuehf"
 }
 
 variable "function_app_name" {
   type    = string
-  default = "my-function-appdsdsdsd"
+  default = "appdsdsdsd"
 }
 
 resource "azurerm_resource_group" "rg" {
