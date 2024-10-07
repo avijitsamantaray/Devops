@@ -31,7 +31,7 @@ jobs:
       - name: Install requirements
         run: pip install -r src/requirements.txt
       
-      - name: Create Hera Snowflake Objects
-        run: python src/scripts/snowflake_deployments/create_hera_objects.py
+      - name: snowflake connect
+        run: python src/snowflake_connect.py
 
 
