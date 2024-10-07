@@ -10,7 +10,7 @@ import sys
 
 # connection to SnowFlake
 key=os.environ['password']
-private_key = serialization.load_pem_private_key(bytes(key, encoding='utf-8'))
+private_key = serialization.load_pem_private_key(bytes(key, encoding='utf-8'), password=None)
 
 
 access_key = private_key.private_bytes(
