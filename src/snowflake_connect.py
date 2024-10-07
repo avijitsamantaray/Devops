@@ -1,9 +1,11 @@
 
 import snowflake.connector
+from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization
 import os
 import pandas as pd
 import sys
+
 
 
 # connection to SnowFlake
