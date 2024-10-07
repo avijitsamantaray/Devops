@@ -7,17 +7,17 @@ variable "resource_group_name" {
 
 variable "location" {
   type    = string
-  default = "East US"
+  default = "centralindia"
 }
 
 variable "storage_account_name" {
   type    = string
-  default = "ghfduhfuehf"
+  default = "asdf1234f"
 }
 
 variable "function_app_name" {
   type    = string
-  default = "appdsdsdsd"
+  default = "fasdf1234"
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -34,12 +34,12 @@ resource "azurerm_storage_account" "sa" {
 }
 
 resource "azurerm_app_service_plan" "asp" {
-  name                = "appservicefdnf"
+  name                = "asasdf"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
-  sku {
-    tier = "EP1"
+ sku {
+    tier = "Premium"
     size = "EP1"
   }
 }
