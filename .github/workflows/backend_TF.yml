@@ -1,7 +1,7 @@
 name: secretes_with backend.tf
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       environment:
         required: true
@@ -31,15 +31,15 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
 
-      - name: Passing Azure creds to backend.tf
-        env:
-          client_id: ${{  secrets['AZURE_CLIENT_ID']}}
-          tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription_id: ${{ secrets.AZURE_SUB_ID }}
-        run: | 
-          sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
-          sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
-          sed -i """s/"subscription_id_value"/"$subscription_id"/g""" backend.tf
+      # - name: Passing Azure creds to backend.tf
+      #   env:
+      #     client_id: ${{  secrets['AZURE_CLIENT_ID']}}
+      #     tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+      #     subscription_id: ${{ secrets.AZURE_SUB_ID }}
+      #   run: | 
+      #     sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
+      #     sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
+      #     sed -i """s/"subscription_id_value"/"$subscription_id"/g""" backend.tf
         
         
       - name: terraform  init & apply & destroy
@@ -48,6 +48,6 @@ jobs:
         run: |
            terraform init
            terraform apply -auto-approve
-           terraform destroy -auto-approve
+        # terraform destroy -auto-approve
      
       
