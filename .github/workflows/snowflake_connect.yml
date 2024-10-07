@@ -3,21 +3,18 @@ name: Snowflake Workflow
 on:
   workflow_dispatch:
 
-env:
-  aname: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-  uname: ${{ secrets.SNOWFLAKE_USER }}
-  password: {{secrets.snowflake_password}}
-
-
-# SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
-# SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
-# SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
-
-
 jobs:
-
   snowflake-workflow:
-    name: Snowflake workflow
+    runs-on: ubuntu-latest
+    env:
+      aname: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      uname: ${{ secrets.SNOWFLAKE_USER }}
+      password: $ {{secrets.snowflake_password}}
+      
+    # SNOWFLAKE_PRIVATE_KEY: ${{ secrets.SNOWFLAKE_PRIVATE_KEY }}
+    # SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
+    # SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
+     
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v3
