@@ -23,10 +23,12 @@ conn=snowflake.connector.connect(
         database='testing',
         schema='testing'
 )
+
 if conn:
-    print("Snowflake connection established successfully!")
+           
+      print("Snowflake connection established successfully!")
 else:
-    print("Failed to establish Snowflake connection.")
+      print("Failed to establish Snowflake connection.")
 cts = conn.cursor()
 
 # Task........................................................................................
