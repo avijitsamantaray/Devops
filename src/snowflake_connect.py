@@ -10,17 +10,14 @@ import sys
 
 # connection to SnowFlake
 key=os.environ['password']
-private_key=serialization.load_pem_private_key(key, password=None,backend=default_backend() ) 
-
-
+private_key= serialization.load_pem_private_key(bytes(str(key), encoding="utf-8"), password=None,backend=default_backend() )
 access_key = private_key.private_bytes(
       encoding=serialization.Encoding.DER,
       format=serialization.PrivateFormat.PKCS8,
-      encryption_algorithm=serialization.NoEncryption()
-  )
+      encryption_algorithm=serialization.NoEncryption(),
 conn=snowflake.connector.connect(
         user=os.environ['uname'],
-        private_key=private_key,
+        private_key=access_key,
         account=os.environ['aname'],
         database='testing',
         schema='testing'
