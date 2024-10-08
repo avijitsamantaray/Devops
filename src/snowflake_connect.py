@@ -7,7 +7,6 @@ import pandas as pd
 import sys
 
 
-
 # connection to SnowFlake
 key=os.environ['password']
 private_key= serialization.load_pem_private_key(bytes(str(key), encoding="utf-8"), password=None,backend=default_backend() )
@@ -23,7 +22,6 @@ conn=snowflake.connector.connect(
         database='testing',
         schema='testing'
 )
-
 cts = conn.cursor()
 
 # Task........................................................................................
