@@ -15,6 +15,7 @@ access_key = private_key.private_bytes(
       encoding=serialization.Encoding.DER,
       format=serialization.PrivateFormat.PKCS8,
       encryption_algorithm=serialization.NoEncryption(),
+)
 conn=snowflake.connector.connect(
         user=os.environ['uname'],
         private_key=access_key,
