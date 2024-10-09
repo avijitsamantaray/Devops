@@ -1,3 +1,4 @@
+/*
 terraform {
   backend "azurerm" {
     resource_group_name  = "hihi"          
@@ -15,3 +16,4 @@ terraform {
    
   }
 }
+*/
