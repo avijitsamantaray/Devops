@@ -10,9 +10,11 @@ terraform {
     }
   }
 }
+/*
 provider "github" {
   token = var.github_token
 }
+*/
 provider "azurerm" {
   storage_use_azuread = true
   features {}
