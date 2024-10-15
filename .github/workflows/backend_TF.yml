@@ -47,7 +47,7 @@ jobs:
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
            terraform init
-           terraform apply -auto-approve
+        # terraform apply -auto-approve
         # terraform destroy -auto-approve
      
       
