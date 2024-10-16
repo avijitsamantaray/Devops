@@ -1,0 +1,2 @@
+the envirnoment file name format should likes below
+AZURE_CLIENT_ID=   AZURE_SUBSCRIPTION_ID=     AZURE_TENANT_ID=    AZURE_CLIENT_SECRET=
