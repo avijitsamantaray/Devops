@@ -5,5 +5,5 @@ inputs:
     description: A list of environment variables to set
     required: true
 runs:
-  using: python
+  using: 'python'
   main: set_env.py
