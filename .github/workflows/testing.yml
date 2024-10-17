@@ -1,1 +1,19 @@
+name: Set Environment Variables
 
+on:
+  push:
+    branches: [main]
+
+jobs:
+  set_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set environment variables
+        uses: avijitsamantaray/Devops/action@v1
+        with:
+          variables: |
+            MY_VAR1=value1
+            MY_VAR2=value2
