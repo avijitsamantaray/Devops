@@ -15,7 +15,3 @@ jobs:
 
       - name: Set environment variables
         uses: avijitsamantaray/Devops/actions@main
-        with:
-          variables: |
-            MY_VAR1=value1
-            MY_VAR2=value2
