@@ -5,5 +5,5 @@ description: Sets environment variables for subsequent steps in a workflow
 #     description: A list of environment variables to set
 #     required: true
 runs:
-  using: 'python'
-  main: 'set_env.py'
+  using: 'docker'
+  main: 'Dockerfile'
