@@ -15,3 +15,6 @@ jobs:
 
       - name: Set environment variables
         uses: avijitsamantaray/custom-actions@main
+
+      - name: echo names
+        run : echo $name
