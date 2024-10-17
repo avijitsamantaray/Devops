@@ -4,4 +4,9 @@ def run():
     # variables = runner.get_inputs('variables')
     # for line in variables.splitlines():
         # key, value = line.split('=')
-        os.environ["name"] = "AVIJIT"
+    with open(os.environ['GITHUB_ENV'],'a') as file:
+        file.write(f"name=Avijit")
+
+run()
+        
+      
