@@ -1,9 +1,9 @@
 name: set_env
 description: Sets environment variables for subsequent steps in a workflow
-inputs:
-  variables:
-    description: A list of environment variables to set
-    required: true
+# inputs:
+#   variables:
+#     description: A list of environment variables to set
+#     required: true
 runs:
   using: 'python'
   main: set_env.py
