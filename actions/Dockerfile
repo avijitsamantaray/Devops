@@ -4,5 +4,4 @@ WORKDIR /app
 
 COPY set_env.py .
 RUN ls /app
-
-# ENTRYPOINT ["python","set_env.py"]
+ENTRYPOINT ["python","set_env.py"]
