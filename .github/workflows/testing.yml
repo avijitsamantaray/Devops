@@ -1,8 +1,10 @@
 name: Set Environment Variables
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   set_env:
