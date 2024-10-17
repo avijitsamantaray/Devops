@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set environment variables
-        uses: avijitsamantaray/Devops/actions@main
+        uses: ./actions
