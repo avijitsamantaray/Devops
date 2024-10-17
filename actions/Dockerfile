@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
-WORKDIR /user/src/app
+WORKDIR /app
 
-COPY set_env.py .
+COPY . .
 
 ENTRYPOINT ["python","set_env.py"]
