@@ -6,4 +6,4 @@ description: Sets environment variables for subsequent steps in a workflow
 #     required: true
 runs:
   using: 'python'
-  main: set_env.py
+  main: 'set_env.py'
